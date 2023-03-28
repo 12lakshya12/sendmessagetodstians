@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>sendmessagetodstians</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .header{
+            height: 50px;
+            width: 100%;
+            background: linear-gradient(to right,rgb(117, 5, 117),rgb(245, 108, 245));
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .header-left{
+            text-decoration: none;
+            color: white;
+            font-size: 20px;
+            margin-left: 10px;
+        }
+        .header-left a{
+            color: beige;
+            font-weight: 600;
+        }
+        .header a{
+            text-decoration: none;
+            cursor: pointer;
+        }
+        .header div a{
+            padding: 10px;
+            font-family: system-ui;
+        }
+        h3{
+            color: darkslategray;
+            margin-top: 20px;
+            text-align: center;
+            font-size: 20px;
+            font-family: cursive;
+        }
+        #admin{
+            color: blueviolet;
+            font-size: 25px;
+            margin-top: 5px;
+        }
+        .main{
+            width: 80%;
+            margin: auto;
+        }
+        .inp{
+            margin-top: 20px;
+            background: linear-gradient(to right,rgb(117, 5, 117),rgb(245, 108, 245));
+            padding: 5px;
+        }
+        textarea{
+            box-shadow: none;
+            appearance: none;
+            width: 100%;
+            height: auto;
+            padding: 15px;
+            font-size: 18px;
+            display: block;
+            border: none;
+            border-radius: 4px;
+            outline: 0;
+            text-decoration: none;
+            line-height: 30px;
+            font-weight: 500;
+            resize: vertical;
+            box-sizing: border-box;
+        }
+        #charleft, #message{
+            color: rgb(85, 84, 84);
+            font-family: raleway,Helvetica,sans-serif;
+            font-size: larger;
+            font-weight: 700;
+            margin: 0;
+        }
+        #message{
+            color: red;
+        }
+        .button{
+            padding: 0;
+            text-align: center;
+            margin-top: 20px;
+        }
+        li{
+            display: inline;
+            vertical-align: middle;
+        }
+        .send{
+            background: linear-gradient(to right,rgb(117, 5, 117),rgb(245, 108, 245));
+            color: white;
+            width: auto;
+            height: 50px;
+            padding-left: 80px;
+            padding-right: 80px;
+            font-size: 18px;
+            border: none;
+            border-radius: 30px;
+            cursor: pointer;
+        }
+        textarea .send{
+            font-family: raleway,Helvetica,sans-serif;
+        }
+        .foot{
+            margin-top: 150px;
+            height: 50px;
+            background: linear-gradient(to right,rgb(117, 5, 117),rgb(245, 108, 245));
+            color: white;
+            display: flex;
+            flex-direction: row;
+            justify-content:end;
+            align-items: center;
+            padding: 10px;
+            font-family: system-ui;
+        }
+        .copyright{
+            text-decoration: none;
+            color: white;
+            font-size: 20px;
+            margin-right: 10px;
+            font-weight: 800;
+        }
+    </style>
+    <script>
+        window.addEventListener('DOMContentLoaded', function() {
+        const textArea = document.getElementById('data');
+        const charCount = document.getElementById('charleft');
+        const message = document.getElementById('message')
+
+        textArea.addEventListener('input', function() {
+            const remainingChars = 300 - textArea.value.length;
+            charCount.innerHTML = `Characters left: ${remainingChars}`;
+          
+            if (remainingChars > 0) {
+                message.innerHTML = 'Abhi aur likh yaar...... XD';
+            }
+        });
+        });
+    </script>
+</head>
+<body>
+    <div class="header">
+        <div class="header-left">
+        </div>
+    </div>
+    <div class="main">
+        <div class="form">
+            <form action="/submit" method="post">
+                <h3>
+                    <span class="label">
+                        <label for="data">Send private messages to</label>
+                    </span>    
+                    <br>
+                    <span id="admin">
+                        @dstians
+                    </span>
+                </h3>
+                <br>
+                <div class="inp">
+                    <span class="text">
+                        <textarea name="message" id="data" rows="5" placeholder="Enter anonymous messages! ;>" maxlength="300" minlength="5"></textarea>
+                    </span>
+                </div>
+                <br>
+                <div id="charleft"></div>
+                <div id="message"></div>
+                <br>
+                <ul class="button">
+                    <li>
+                        <button class="send" value="send">Send Message</button>
+                    </li>
+                </ul>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
